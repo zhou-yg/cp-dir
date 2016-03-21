@@ -1,6 +1,6 @@
 {
   "name": "cp-dir",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "directory dir copy move file sync",
   "main": "index.js",
   "bin":{
