@@ -4,6 +4,8 @@ var path = require('path');
 
 var pwd = process.cwd();
 
+var argv = process.argv.slice(2);
+
 function copy(src,dest){
 
   var srcStat = fs.lstatSync(src);
@@ -14,21 +16,26 @@ function copy(src,dest){
       fs.mkdirSync(dest);
     }
 
-    return fs.readdirSync(src).forEach(function (filePath) {
+    fs.readdirSync(src).map(function (filePath) {
       return copy(path.join(src,filePath),path.join(dest,filePath));
-    }).every(function (r) {
-      return r;
     });
   }else{
-    return fs.writeFileSync(dest,fs.readFileSync(src));
+    fs.writeFileSync(dest,fs.readFileSync(src));
   }
 }
 
+if(argv.length === 2){
+  beforeCopy(argv[0],argv[1]);
+}
 
-module.exports = function (src,dest) {
+function beforeCopy(src,dest) {
 
-  return copy(
+  copy(
     path.resolve(pwd,src),
     path.resolve(pwd,dest)
   );
+
+  console.log('done');
 };
+
+module.exports = beforeCopy;
