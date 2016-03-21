@@ -1,0 +1,25 @@
+{
+  "name": "cp-dir",
+  "version": "1.0.1",
+  "description": "directory dir copy move file sync",
+  "main": "index.js",
+  "bin":{
+    "cp-dir":"./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords":[
+    "directory copy",
+    "move files",
+    "move directory",
+    "dir copy",
+    "dir move",
+    "move files",
+    "mv files",
+    "cp files",
+    "no other depency"
+  ]
+}
