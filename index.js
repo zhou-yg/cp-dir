@@ -7,7 +7,6 @@ var pwd = process.cwd();
 var argv = process.argv.slice(2);
 
 function copy(src,dest){
-
   var srcStat = fs.lstatSync(src);
 
   if(srcStat.isDirectory()){
@@ -29,11 +28,13 @@ if(argv.length === 2){
 }
 
 function beforeCopy(src,dest) {
+  var from = path.resolve(pwd,src);
+  var to = path.resolve(pwd,dest);
 
-  copy(
-    path.resolve(pwd,src),
-    path.resolve(pwd,dest)
-  );
+  console.log('from:',from);
+  console.log('to:',to);
+
+  copy(from,to);
 
   console.log('done');
 };
